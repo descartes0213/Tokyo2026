@@ -89,3 +89,814 @@
 
         /* 主容器 */
         main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active {
+            display: block;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 底部固定導航 Tab */
+        nav.tab-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+            z-index: 999;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            color: #8395a7;
+            font-size: 0.74rem;
+            font-weight: 500;
+            cursor: pointer;
+            width: 25%;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn i {
+            font-size: 1.25rem;
+        }
+
+        .nav-btn.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* 行程：日別橫向滑動按鈕 */
+        .day-slider-container {
+            margin-bottom: 16px;
+        }
+
+        .day-slider {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 4px 2px 10px;
+            scrollbar-width: none;
+        }
+
+        .day-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .day-btn {
+            flex: 0 0 auto;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .day-btn span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #a4b0be;
+        }
+
+        .day-btn.active {
+            background: var(--fuji-blue);
+            color: #ffffff;
+            border-color: var(--fuji-blue);
+        }
+
+        .day-btn.active span {
+            color: #dfe4ea;
+        }
+
+        .day-content {
+            display: none;
+        }
+
+        .day-content.active {
+            display: block;
+        }
+
+        /* tenki.jp 4 時段氣象卡片 */
+        .tenki-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 18px;
+            border-left: 5px solid #2980b9;
+        }
+
+        .tenki-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .tenki-area {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tenki-official-badge {
+            font-size: 0.72rem;
+            color: #2980b9;
+            background: #e8f4fc;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .tenki-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            text-align: center;
+        }
+
+        .tenki-slot {
+            background: #fbfcfd;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 4px;
+        }
+
+        .slot-time {
+            font-size: 0.68rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .slot-icon {
+            font-size: 1.25rem;
+            margin: 4px 0;
+        }
+
+        .icon-sun { color: #e67e22; }
+        .icon-cloud-sun { color: #f39c12; }
+        .icon-cloud { color: #7f8c8d; }
+        .icon-rain { color: #3498db; }
+
+        .slot-temp {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .slot-pop {
+            font-size: 0.68rem;
+            color: #2980b9;
+            margin-top: 2px;
+        }
+
+        /* 行程時間軸 Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: #dfe6e9;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -17px;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--fuji-blue);
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 2px var(--fuji-blue);
+        }
+
+        .timeline-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-time-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--fuji-blue);
+            background: #eef5fc;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #d35400;
+            background: #fdf2e9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.86rem;
+            color: #4b6584;
+            line-height: 1.55;
+            margin-bottom: 10px;
+        }
+
+        .btn-map {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #f1f2f6;
+            color: #2f3542;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.76rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .btn-map:hover {
+            background: #e4e7eb;
+        }
+
+        /* 導覽卡片與視訊 */
+        .guide-article {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 22px;
+        }
+
+        .guide-img-box {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: #eceff1;
+        }
+
+        .guide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .guide-img-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.65);
+            color: #ffffff;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .guide-content {
+            padding: 16px 18px;
+        }
+
+        .guide-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2d3436;
+        }
+
+        .guide-story-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 10px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .guide-text {
+            font-size: 0.88rem;
+            color: #576574;
+            line-height: 1.6;
+        }
+
+        .live-stream-box {
+            background: #000;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .live-info {
+            padding: 12px 16px;
+            background: #1e272e;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 行前清單 */
+        .checklist-section {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 18px;
+            box-shadow: var(--shadow);
+            margin-bottom: 18px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .progress-text {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--fuji-blue);
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .check-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .check-label {
+            font-size: 0.88rem;
+            color: var(--text-main);
+            flex: 1;
+        }
+
+        .check-item.done .check-label {
+            text-decoration: line-through;
+            color: #b2bec3;
+        }
+
+        .add-item-box {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .add-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            font-size: 0.84rem;
+        }
+
+        .btn-add {
+            background: var(--fuji-blue);
+            color: #ffffff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* 資訊頁與交通查詢 */
+        .info-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 18px;
+            box-shadow: var(--shadow);
+            margin-bottom: 18px;
+        }
+
+        .flight-row {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .flight-type {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #d35400;
+            margin-bottom: 4px;
+        }
+
+        .flight-detail {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #2d3436;
+        }
+
+        .hotel-list {
+            list-style: none;
+        }
+
+        .hotel-item {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 0.88rem;
+        }
+
+        .hotel-item:last-child {
+            border-bottom: none;
+        }
+
+        .hotel-date {
+            display: inline-block;
+            width: 76px;
+            font-weight: 700;
+            color: var(--fuji-blue);
+            font-size: 0.78rem;
+        }
+
+        .transit-frame-box {
+            width: 100%;
+            height: 480px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 12px;
+            background: #fafafa;
+        }
+
+        .transit-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .quick-routes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .quick-btn {
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.74rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .quick-btn:hover {
+            background: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頂部標頭 -->
+    <header>
+        <div class="header-top">
+            <div class="header-title">
+                <h1><i class="fa-solid fa-mountain-sun"></i> 東京與富士山</h1>
+                <p>四大一小 6天5夜慢活之旅・10/9 - 10/14</p>
+            </div>
+            <a href="https://tenki.jp/" target="_blank" class="weather-btn-top">
+                <i class="fa-solid fa-cloud-sun"></i> tenki.jp 氣象
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== 頁籤 1: 行程 ==================== -->
+        <section id="view-schedule" class="page-view active">
+            <!-- 橫向滑動分頁按鈕 (Day 1 ~ Day 6) -->
+            <div class="day-slider-container">
+                <div class="day-slider">
+                    <button class="day-btn active" onclick="switchDay(1)">
+                        Day 1<span>10/9 (五)</span>
+                    </button>
+                    <button class="day-btn" onclick="switchDay(2)">
+                        Day 2<span>10/10 (六)</span>
+                    </button>
+                    <button class="day-btn" onclick="switchDay(3)">
+                        Day 3<span>10/11 (日)</span>
+                    </button>
+                    <button class="day-btn" onclick="switchDay(4)">
+                        Day 4<span>10/12 (一)</span>
+                    </button>
+                    <button class="day-btn" onclick="switchDay(5)">
+                        Day 5<span>10/13 (二)</span>
+                    </button>
+                    <button class="day-btn" onclick="switchDay(6)">
+                        Day 6<span>10/14 (三)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Day 1：東京都台東區 -->
+            <div id="day-1" class="day-content active">
+                <div class="tenki-card">
+                    <div class="tenki-header">
+                        <div class="tenki-area"><i class="fa-solid fa-location-dot"></i> 東京都台東區 天氣預報</div>
+                        <a href="https://tenki.jp/forecast/3/16/4410/13106/" target="_blank" class="tenki-official-badge">tenki.jp 即時連線</a>
+                    </div>
+                    <div class="tenki-grid">
+                        <div class="tenki-slot">
+                            <div class="slot-time">00 - 06</div>
+                            <div class="slot-icon icon-cloud"><i class="fa-solid fa-cloud"></i></div>
+                            <div class="slot-temp">18°C</div>
+                            <div class="slot-pop">10%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">06 - 12</div>
+                            <div class="slot-icon icon-cloud-sun"><i class="fa-solid fa-cloud-sun"></i></div>
+                            <div class="slot-temp">21°C</div>
+                            <div class="slot-pop">10%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">12 - 18</div>
+                            <div class="slot-icon icon-sun"><i class="fa-solid fa-sun"></i></div>
+                            <div class="slot-temp">24°C</div>
+                            <div class="slot-pop">0%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">18 - 24</div>
+                            <div class="slot-icon icon-cloud"><i class="fa-solid fa-moon"></i></div>
+                            <div class="slot-temp">19°C</div>
+                            <div class="slot-pop">10%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">19:25 抵達</span>
+                            <h2 class="card-title"><i class="fa-solid fa-plane-arrival"></i> 成田機場專車接送</h2>
+                            <p class="card-desc">星宇航空 JX804 抵達成田第二航廈。專車司機舉牌會合，四大一小大型行李與推車直接上車，免去轉車勞累，直奔淺草合羽橋住宿。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">21:00</span>
+                            <h2 class="card-title"><i class="fa-solid fa-hotel"></i> 入住 KOKO HOTEL 淺草合羽橋</h2>
+                            <p class="card-desc">辦理入住安頓。公寓式客房配備微波爐、IH 廚房餐具與洗脫烘設備，家庭長住極具便利性。</p>
+                            <a href="https://maps.google.com/?q=KOKO+HOTEL+Residence+Asakusa+Kappabashi" target="_blank" class="btn-map"><i class="fa-solid fa-location-arrow"></i> 飯店導航</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">21:30</span>
+                            <h2 class="card-title"><i class="fa-solid fa-basket-shopping"></i> 超市與外帶晚餐採買</h2>
+                            <div class="card-tag"><i class="fa-solid fa-tags"></i> 熟食便當/壽司/宵夜補充</div>
+                            <p class="card-desc">
+                                <strong>採買與外帶建議</strong>：<br>
+                                • <strong>Life 超市 淺草店</strong>（營業至 22:00，步行 3 分鐘）：日本鮮奶、產地水果與晚間熟食特價出清。<br>
+                                • <strong>西友超市 淺草 ROX 店</strong>（<strong>24 小時營業</strong>，步行 6 分鐘）：若班機延誤超過 22:00，地下一樓食品館全天候供應現做熱食、便當與嬰童備品。<br>
+                                • <strong>外帶選項</strong>：周邊松屋牛丼、Lawson/7-11、居酒屋串燒外帶回房享用。
+                            </p>
+                            <a href="https://maps.google.com/?q=SEIYU+Asakusa" target="_blank" class="btn-map"><i class="fa-solid fa-location-arrow"></i> 西友超市導航</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2：東京都澀谷區 -->
+            <div id="day-2" class="day-content">
+                <div class="tenki-card">
+                    <div class="tenki-header">
+                        <div class="tenki-area"><i class="fa-solid fa-location-dot"></i> 東京都澀谷區 天氣預報</div>
+                        <a href="https://tenki.jp/forecast/3/16/4410/13113/" target="_blank" class="tenki-official-badge">tenki.jp 即時連線</a>
+                    </div>
+                    <div class="tenki-grid">
+                        <div class="tenki-slot">
+                            <div class="slot-time">00 - 06</div>
+                            <div class="slot-icon icon-cloud"><i class="fa-solid fa-cloud"></i></div>
+                            <div class="slot-temp">17°C</div>
+                            <div class="slot-pop">10%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">06 - 12</div>
+                            <div class="slot-icon icon-sun"><i class="fa-solid fa-sun"></i></div>
+                            <div class="slot-temp">22°C</div>
+                            <div class="slot-pop">0%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">12 - 18</div>
+                            <div class="slot-icon icon-cloud-sun"><i class="fa-solid fa-cloud-sun"></i></div>
+                            <div class="slot-temp">25°C</div>
+                            <div class="slot-pop">0%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">18 - 24</div>
+                            <div class="slot-icon icon-cloud"><i class="fa-solid fa-cloud-moon"></i></div>
+                            <div class="slot-temp">20°C</div>
+                            <div class="slot-pop">10%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">08:00 - 09:15</span>
+                            <h2 class="card-title"><i class="fa-solid fa-mug-saucer"></i> 早餐：淺草在地職人朝食</h2>
+                            <p class="card-desc">
+                                <strong>精選推薦（二選一）</strong>：<br>
+                                • <strong>Pelican Café</strong>（09:00 開門）：老字號白鵜鶘炭火厚切烤吐司與火腿三明治。<br>
+                                • <strong>MISOJYU</strong>（08:00 開門）：慢火熬煮有機蔬菜濃郁味噌湯搭現做日式飯糰。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">09:15 - 11:00</span>
+                            <h2 class="card-title"><i class="fa-solid fa-torii-gate"></i> 淺草雷門 ➔ 仲見世通</h2>
+                            <div class="card-tag"><i class="fa-solid fa-cookie-bite"></i> 必買點心：淺草炸肉餅、人形燒</div>
+                            <p class="card-desc">早晨避開觀光團人潮，在雷門大紅燈籠下拍照合影，漫步仲見世通體驗下町歷史風情。</p>
+                            <a href="https://maps.google.com/?q=Kaminarimon" target="_blank" class="btn-map"><i class="fa-solid fa-location-arrow"></i> 雷門導航</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">11:30 - 13:00</span>
+                            <h2 class="card-title"><i class="fa-solid fa-utensils"></i> 午餐：邁泉青山本店 (まい泉)</h2>
+                            <p class="card-desc">淺草站搭乘東京地下鐵銀座線直達「表參道站」A2 出口。由昭和錢湯改造的挑高格天井座席，享受極致軟嫩黑豚炸豬排套餐。</p>
+                            <a href="https://maps.google.com/?q=Tonkatsu+Maisen+Aoyama" target="_blank" class="btn-map"><i class="fa-solid fa-location-arrow"></i> 餐廳導航</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">13:00 - 15:30</span>
+                            <h2 class="card-title"><i class="fa-solid fa-bag-shopping"></i> 表參道 ➔ 南青山漫步</h2>
+                            <p class="card-desc">走訪安藤忠雄設計的表參道之丘與南青山精品建築。中途可在原宿站「猿田彥珈琲 The Bridge」或「WITH HARAJUKU」舒適沙發區小憩餵奶。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">15:30 - 17:00</span>
+                            <h2 class="card-title"><i class="fa-solid fa-tree"></i> 明治神宮參拜</h2>
+                            <div class="card-tag"><i class="fa-solid fa-baby-carriage"></i> 提醒：碎石路參道建議換嬰兒背帶</div>
+                            <p class="card-desc">穿過鬱鬱蔥蔥的人工林蔭大道，瞻仰由台灣千年檜木建造的巨大木造鳥居，享受身心靜謐。</p>
+                            <a href="https://maps.google.com/?q=Meiji+Jingu" target="_blank" class="btn-map"><i class="fa-solid fa-location-arrow"></i> 神宮導航</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-time-tag">17:30 之後</span>
+                            <h2 class="card-title"><i class="fa-solid fa-city"></i> 夜間行程 (視體力三選一)</h2>
+                            <p class="card-desc">
+                                1. <strong>東京鐵塔</strong>：赤羽橋站，芝公園仰望經典橘紅暖光地標。<br>
+                                2. <strong>晴空塔</strong>：押上站直達，商場齊全好逛，觀景台遠眺全關東夜景。<br>
+                                3. <strong>淺草夜間漫步</strong>：返回飯店周邊，欣賞點燈後的五重塔，悠閒居酒屋晚餐。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3：山梨縣富士河口湖町 -->
+            <div id="day-3" class="day-content">
+                <div class="tenki-card">
+                    <div class="tenki-header">
+                        <div class="tenki-area"><i class="fa-solid fa-location-dot"></i> 山梨縣富士河口湖町 天氣預報</div>
+                        <a href="https://tenki.jp/forecast/4/22/4920/19430/" target="_blank" class="tenki-official-badge">tenki.jp 即時連線</a>
+                    </div>
+                    <div class="tenki-grid">
+                        <div class="tenki-slot">
+                            <div class="slot-time">00 - 06</div>
+                            <div class="slot-icon icon-cloud"><i class="fa-solid fa-cloud"></i></div>
+                            <div class="slot-temp">10°C</div>
+                            <div class="slot-pop">10%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">06 - 12</div>
+                            <div class="slot-icon icon-sun"><i class="fa-solid fa-sun"></i></div>
+                            <div class="slot-temp">15°C</div>
+                            <div class="slot-pop">0%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">12 - 18</div>
+                            <div class="slot-icon icon-cloud-sun"><i class="fa-solid fa-cloud-sun"></i></div>
+                            <div class="slot-temp">19°C</div>
+                            <div class="slot-pop">10%</div>
+                        </div>
+                        <div class="tenki-slot">
+                            <div class="slot-time">18 - 24</div>
+                            <div class="slot-icon icon-cloud"><i class="fa-solid fa-moon"></i></div>
+                            <div class="slot-temp">12°C</div>
+                            <div class="slot-pop">10%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <span class="card-
