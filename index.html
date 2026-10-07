@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>2026 秋之東京 - 東京市區、富士河口湖慢活之旅</title>
-    <!-- Google Fonts & Font Awesome -->
+    <!-- Google Fonts & Font Awesome 圖示庫 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* 2025 Pantone Color of the Year: Mocha Mousse (PANTONE 17-1230) 色系調配 */
+        /* 2025 Pantone 年度代表色：Mocha Mousse (PANTONE 17-1230 摩卡慕斯) 視覺規範 */
         :root {
             --mocha: #A47864;             /* 2025 Pantone 主色：摩卡慕斯 */
-            --mocha-dark: #6E473B;        /* 深焙摩卡 */
+            --mocha-dark: #6E473B;        /* 深焙摩卡褐 */
             --mocha-deep: #4A2E24;        /* 濃郁深褐 */
             --mocha-light: #CBB2A3;       /* 淺摩卡奶霜 */
             --latte-sand: #EFE6DC;        /* 燕麥拿鐵沙色 */
-            --warm-cream: #FAF7F4;        /* 暖調背景白 */
+            --warm-cream: #FAF7F4;        /* 溫潤奶油背景白 */
             --card-bg: #FFFFFF;           /* 純白卡片底 */
-            --text-main: #2C221E;         /* 暖深焙碳褐 (主文字) */
-            --text-sub: #6E615A;          /* 暖灰褐 (次要文字) */
+            --text-main: #2C221E;         /* 暖碳褐 (主文字) */
+            --text-sub: #6E615A;          /* 暖灰褐 (次文字) */
             --border: #EDE4DC;           /* 柔和摩卡邊框 */
-            --accent-warm: #D4A373;       /* 溫暖焦糖點綴 */
+            --accent-warm: #D4A373;       /* 溫暖焦糖點綴色 */
             --radius-md: 14px;
             --radius-lg: 20px;
             --shadow: 0 4px 18px rgba(74, 46, 36, 0.07);
@@ -113,7 +113,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 底部導航欄 */
+        /* 底部固定導航欄 */
         nav.tab-nav {
             position: fixed;
             bottom: 0;
@@ -433,7 +433,7 @@
             color: var(--mocha-dark);
         }
 
-        /* 導覽卡片與視訊 */
+        /* 導覽卡片與圖片容器 */
         .guide-article {
             background: #FFFFFF;
             border-radius: var(--radius-md);
@@ -446,7 +446,7 @@
         .guide-img-box {
             position: relative;
             width: 100%;
-            height: 220px;
+            height: 240px;
             background: #EAE3DC;
         }
 
@@ -454,6 +454,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .guide-content {
@@ -985,7 +986,7 @@
                             <h2 class="card-title"><i class="fa-solid fa-bag-shopping"></i> 表參道 ➔ 南青山漫步</h2>
                             <p class="card-desc">漫步表參道之丘林蔭道與南青山街區，享受國際建築與生活美學風格。</p>
 
-                            <!-- 可拜訪清單 (加入指定品牌) -->
+                            <!-- 可拜訪清單 -->
                             <div class="spot-highlight-box">
                                 <div class="spot-highlight-title"><i class="fa-solid fa-store"></i> 表參道・南青山 可拜訪清單：</div>
                                 <ul class="spot-highlight-list">
@@ -1386,10 +1387,10 @@
                 </div>
             </div>
 
-            <!-- 淺草寺 (雷門大紅燈籠精準圖片) -->
+            <!-- 1. 淺草寺（採用提供之「雷門.jpg」） -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80" alt="淺草寺雷門大紅提燈">
+                    <img class="guide-img" src="雷門.jpg" alt="淺草寺雷門大紅燈籠">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">淺草寺與雷門大紅燈籠</h2>
@@ -1399,10 +1400,10 @@
                 </div>
             </article>
 
-            <!-- 明治神宮 -->
+            <!-- 2. 明治神宮（採用提供之「明治神宮.jpg」） -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=900&q=80" alt="明治神宮大鳥居與林道">
+                    <img class="guide-img" src="明治神宮.jpg" alt="明治神宮林道與巨型大鳥居">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">明治神宮與永恆之森</h2>
@@ -1412,10 +1413,10 @@
                 </div>
             </article>
 
-            <!-- 青山麵包祭 -->
+            <!-- 3. 青山麵包祭 -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="青山麵包祭職人手作歐式麵包">
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80" alt="青山麵包祭職人天然酵母歐式手作麵包">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">青山麵包祭 (Aoyama Bread Festival)</h2>
@@ -1425,10 +1426,10 @@
                 </div>
             </article>
 
-            <!-- 河口湖 -->
+            <!-- 4. 河口湖 -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=900&q=80" alt="河口湖湖畔與逆富士">
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=1000&q=80" alt="秋日河口湖湖水與對岸富士山">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">河口湖與秋日逆富士</h2>
@@ -1438,10 +1439,10 @@
                 </div>
             </article>
 
-            <!-- 富士山 -->
+            <!-- 5. 富士山 -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=900&q=80" alt="雄偉的富士山積雪">
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1000&q=80" alt="日本第一聖山富士山積雪山頂全景">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">聖山富士山 (標高 3,776m)</h2>
@@ -1451,10 +1452,10 @@
                 </div>
             </article>
 
-            <!-- 新倉山淺間神社 -->
+            <!-- 6. 新倉山淺間神社（採用提供之「新倉山.jpg」） -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1528164344705-475426879c0d?auto=format&fit=crop&w=900&q=80" alt="新倉山淺間公園忠靈塔與富士山">
+                    <img class="guide-img" src="新倉山.jpg" alt="新倉山淺間公園忠靈塔五重塔與富士山同框絕景">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">新倉山淺間公園與忠靈塔</h2>
