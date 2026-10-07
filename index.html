@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>東京與富士山 6天5夜慢活之旅</title>
-    <!-- 字體與 Font Awesome 圖示 -->
+    <title>2026 秋之東京 - 東京市區、富士河口湖慢活之旅</title>
+    <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* 2025 Pantone Color of the Year: Mocha Mousse (PANTONE 17-1230) 色系調配 */
         :root {
-            --primary: #c4473d;
-            --primary-dark: #9e332a;
-            --fuji-blue: #2b5c8f;
-            --accent: #dca156;
-            --bg-light: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-main: #2d3436;
-            --text-sub: #636e72;
-            --border: #edf2f7;
+            --mocha: #A47864;             /* 2025 Pantone 主色：摩卡慕斯 */
+            --mocha-dark: #6E473B;        /* 深焙摩卡 */
+            --mocha-deep: #4A2E24;        /* 濃郁深褐 */
+            --mocha-light: #CBB2A3;       /* 淺摩卡奶霜 */
+            --latte-sand: #EFE6DC;        /* 燕麥拿鐵沙色 */
+            --warm-cream: #FAF7F4;        /* 暖調背景白 */
+            --card-bg: #FFFFFF;           /* 純白卡片底 */
+            --text-main: #2C221E;         /* 暖深焙碳褐 (主文字) */
+            --text-sub: #6E615A;          /* 暖灰褐 (次要文字) */
+            --border: #EDE4DC;           /* 柔和摩卡邊框 */
+            --accent-warm: #D4A373;       /* 溫暖焦糖點綴 */
             --radius-md: 14px;
             --radius-lg: 20px;
-            --shadow: 0 4px 18px rgba(0,0,0,0.06);
+            --shadow: 0 4px 18px rgba(74, 46, 36, 0.07);
         }
 
         * {
@@ -35,21 +38,21 @@
 
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--warm-cream);
             color: var(--text-main);
-            padding-bottom: 85px;
+            padding-bottom: 90px;
             line-height: 1.6;
         }
 
-        /* 頂部導航列 */
+        /* 頂部標頭 */
         header {
-            background: linear-gradient(135deg, #1f2d3d 0%, #2b5c8f 100%);
-            color: #ffffff;
-            padding: 22px 20px 18px;
+            background: linear-gradient(135deg, var(--mocha-deep) 0%, var(--mocha-dark) 50%, var(--mocha) 100%);
+            color: #FFFFFF;
+            padding: 24px 20px 18px;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 12px rgba(74, 46, 36, 0.2);
         }
 
         .header-top {
@@ -59,7 +62,7 @@
         }
 
         .header-title h1 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -69,22 +72,24 @@
 
         .header-title p {
             font-size: 0.78rem;
-            color: #d1d8e0;
-            margin-top: 2px;
+            color: var(--latte-sand);
+            margin-top: 3px;
+            letter-spacing: 0.2px;
         }
 
         .weather-btn-top {
-            background: rgba(255,255,255,0.18);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.18);
+            color: #FFFFFF;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.76rem;
             text-decoration: none;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(6px);
             display: flex;
             align-items: center;
             gap: 6px;
             transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* 主容器 */
@@ -108,18 +113,19 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 底部固定導航 Tab */
+        /* 底部導航欄 */
         nav.tab-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: #ffffff;
+            background: #FFFFFF;
             display: flex;
             justify-content: space-around;
             padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
-            box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 -2px 14px rgba(74, 46, 36, 0.08);
             z-index: 999;
+            border-top: 1px solid var(--border);
         }
 
         .nav-btn {
@@ -129,7 +135,7 @@
             flex-direction: column;
             align-items: center;
             gap: 3px;
-            color: #8395a7;
+            color: #9E8E85;
             font-size: 0.74rem;
             font-weight: 500;
             cursor: pointer;
@@ -142,7 +148,7 @@
         }
 
         .nav-btn.active {
-            color: var(--primary);
+            color: var(--mocha-dark);
             font-weight: 700;
         }
 
@@ -165,7 +171,7 @@
 
         .day-btn {
             flex: 0 0 auto;
-            background: #ffffff;
+            background: #FFFFFF;
             border: 1px solid var(--border);
             padding: 8px 14px;
             border-radius: 12px;
@@ -182,17 +188,17 @@
             display: block;
             font-size: 0.7rem;
             font-weight: 400;
-            color: #a4b0be;
+            color: #A89B93;
         }
 
         .day-btn.active {
-            background: var(--fuji-blue);
-            color: #ffffff;
-            border-color: var(--fuji-blue);
+            background: var(--mocha);
+            color: #FFFFFF;
+            border-color: var(--mocha);
         }
 
         .day-btn.active span {
-            color: #dfe4ea;
+            color: var(--latte-sand);
         }
 
         .day-content {
@@ -205,12 +211,15 @@
 
         /* tenki.jp 4 時段氣象卡片 */
         .tenki-card {
-            background: #ffffff;
+            background: #FFFFFF;
             border-radius: var(--radius-md);
             padding: 14px 16px;
             box-shadow: var(--shadow);
             margin-bottom: 18px;
-            border-left: 5px solid #2980b9;
+            border-left: 5px solid var(--mocha);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .tenki-header {
@@ -225,7 +234,7 @@
         .tenki-area {
             font-size: 0.92rem;
             font-weight: 700;
-            color: #2c3e50;
+            color: var(--mocha-dark);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -233,12 +242,12 @@
 
         .tenki-official-badge {
             font-size: 0.72rem;
-            color: #2980b9;
-            background: #e8f4fc;
-            padding: 2px 8px;
-            border-radius: 10px;
+            color: var(--mocha-dark);
+            background: var(--latte-sand);
+            padding: 2px 9px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .tenki-grid {
@@ -249,7 +258,7 @@
         }
 
         .tenki-slot {
-            background: #fbfcfd;
+            background: var(--warm-cream);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 8px 4px;
@@ -257,7 +266,7 @@
 
         .slot-time {
             font-size: 0.68rem;
-            color: #7f8c8d;
+            color: var(--text-sub);
             font-weight: 500;
         }
 
@@ -266,20 +275,20 @@
             margin: 4px 0;
         }
 
-        .icon-sun { color: #e67e22; }
-        .icon-cloud-sun { color: #f39c12; }
-        .icon-cloud { color: #7f8c8d; }
-        .icon-rain { color: #3498db; }
+        .icon-sun { color: #D97706; }
+        .icon-cloud-sun { color: #D4A373; }
+        .icon-cloud { color: #8C7A70; }
+        .icon-rain { color: #64748B; }
 
         .slot-temp {
             font-size: 0.78rem;
             font-weight: 700;
-            color: #2c3e50;
+            color: var(--text-main);
         }
 
         .slot-pop {
             font-size: 0.68rem;
-            color: #2980b9;
+            color: var(--mocha-dark);
             margin-top: 2px;
         }
 
@@ -296,7 +305,7 @@
             top: 8px;
             bottom: 8px;
             width: 2px;
-            background: #dfe6e9;
+            background: var(--mocha-light);
         }
 
         .timeline-item {
@@ -312,9 +321,9 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--fuji-blue);
-            border: 2px solid #ffffff;
-            box-shadow: 0 0 0 2px var(--fuji-blue);
+            background: var(--mocha);
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 0 0 2px var(--mocha);
         }
 
         .timeline-card {
@@ -322,14 +331,15 @@
             border-radius: var(--radius-md);
             padding: 14px 16px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
 
         .card-time-tag {
             display: inline-block;
             font-size: 0.75rem;
             font-weight: 700;
-            color: var(--fuji-blue);
-            background: #eef5fc;
+            color: var(--mocha-dark);
+            background: var(--latte-sand);
             padding: 2px 8px;
             border-radius: 6px;
             margin-bottom: 6px;
@@ -342,6 +352,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            color: var(--text-main);
         }
 
         .card-tag {
@@ -350,8 +361,8 @@
             gap: 4px;
             font-size: 0.72rem;
             font-weight: 600;
-            color: #d35400;
-            background: #fdf2e9;
+            color: #8C4A28;
+            background: #FDF4ED;
             padding: 2px 8px;
             border-radius: 4px;
             margin-bottom: 8px;
@@ -359,7 +370,7 @@
 
         .card-desc {
             font-size: 0.86rem;
-            color: #4b6584;
+            color: var(--text-sub);
             line-height: 1.55;
             margin-bottom: 10px;
         }
@@ -368,51 +379,81 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            background: #f1f2f6;
-            color: #2f3542;
+            background: var(--warm-cream);
+            color: var(--mocha-dark);
+            border: 1px solid var(--border);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.76rem;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: 0.2s;
         }
 
         .btn-map:hover {
-            background: #e4e7eb;
+            background: var(--latte-sand);
+        }
+
+        /* Day2 特色口袋名單區塊 */
+        .spot-highlight-box {
+            background: var(--warm-cream);
+            border-radius: 10px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px dashed var(--mocha-light);
+        }
+
+        .spot-highlight-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--mocha-dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .spot-highlight-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .spot-highlight-list li {
+            font-size: 0.82rem;
+            padding: 4px 0;
+            border-bottom: 1px solid #EFEAE5;
+            color: var(--text-main);
+        }
+
+        .spot-highlight-list li:last-child {
+            border-bottom: none;
+        }
+
+        .spot-highlight-list strong {
+            color: var(--mocha-dark);
         }
 
         /* 導覽卡片與視訊 */
         .guide-article {
-            background: #ffffff;
+            background: #FFFFFF;
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow);
             margin-bottom: 22px;
+            border: 1px solid var(--border);
         }
 
         .guide-img-box {
             position: relative;
             width: 100%;
-            height: 200px;
-            background: #eceff1;
+            height: 220px;
+            background: #EAE3DC;
         }
 
         .guide-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .guide-img-badge {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.65);
-            color: #ffffff;
-            font-size: 0.65rem;
-            padding: 2px 8px;
-            border-radius: 12px;
         }
 
         .guide-content {
@@ -423,13 +464,13 @@
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #2d3436;
+            color: var(--text-main);
         }
 
         .guide-story-title {
             font-size: 0.82rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--mocha-dark);
             margin-top: 10px;
             margin-bottom: 4px;
             display: flex;
@@ -439,15 +480,16 @@
 
         .guide-text {
             font-size: 0.88rem;
-            color: #576574;
+            color: var(--text-sub);
             line-height: 1.6;
         }
 
+        /* 視訊區塊與異常備案指南 */
         .live-stream-box {
-            background: #000;
+            background: #000000;
             border-radius: var(--radius-md);
             overflow: hidden;
-            margin-bottom: 22px;
+            margin-bottom: 16px;
             box-shadow: var(--shadow);
         }
 
@@ -469,20 +511,79 @@
 
         .live-info {
             padding: 12px 16px;
-            background: #1e272e;
-            color: #fff;
+            background: #201815;
+            color: #FFFFFF;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        .live-troubleshoot-box {
+            background: #FFFFFF;
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            margin-bottom: 22px;
+            border: 1px solid #E5D5C8;
+            box-shadow: var(--shadow);
+        }
+
+        .troubleshoot-title {
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: #8C4A28;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .troubleshoot-desc {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .troubleshoot-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-direct-yt {
+            background: var(--mocha-dark);
+            color: #FFFFFF;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.74rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+        }
+
+        .btn-alt-camera {
+            background: var(--latte-sand);
+            color: var(--mocha-dark);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.74rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+        }
+
         /* 行前清單 */
         .checklist-section {
-            background: #ffffff;
+            background: #FFFFFF;
             border-radius: var(--radius-md);
             padding: 18px;
             box-shadow: var(--shadow);
             margin-bottom: 18px;
+            border: 1px solid var(--border);
         }
 
         .section-header {
@@ -498,12 +599,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            color: var(--text-main);
         }
 
         .progress-text {
             font-size: 0.78rem;
             font-weight: 700;
-            color: var(--fuji-blue);
+            color: var(--mocha-dark);
         }
 
         .check-item {
@@ -523,7 +625,7 @@
         .check-item input[type="checkbox"] {
             width: 18px;
             height: 18px;
-            accent-color: var(--primary);
+            accent-color: var(--mocha-dark);
             cursor: pointer;
         }
 
@@ -535,7 +637,7 @@
 
         .check-item.done .check-label {
             text-decoration: line-through;
-            color: #b2bec3;
+            color: #B5A8A0;
         }
 
         .add-item-box {
@@ -547,14 +649,15 @@
         .add-input {
             flex: 1;
             padding: 8px 12px;
-            border: 1px solid #dcdde1;
+            border: 1px solid #DCD0C6;
             border-radius: 8px;
             font-size: 0.84rem;
+            background: var(--warm-cream);
         }
 
         .btn-add {
-            background: var(--fuji-blue);
-            color: #ffffff;
+            background: var(--mocha);
+            color: #FFFFFF;
             border: none;
             padding: 8px 14px;
             border-radius: 8px;
@@ -563,34 +666,35 @@
             cursor: pointer;
         }
 
-        /* 資訊頁與交通查詢 */
+        /* 資訊頁與交通查詢表單 */
         .info-card {
-            background: #ffffff;
+            background: #FFFFFF;
             border-radius: var(--radius-md);
             padding: 18px;
             box-shadow: var(--shadow);
             margin-bottom: 18px;
+            border: 1px solid var(--border);
         }
 
         .flight-row {
-            background: #f8fafc;
+            background: var(--warm-cream);
             border-radius: 10px;
             padding: 12px;
             margin-bottom: 10px;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid var(--mocha);
         }
 
         .flight-type {
             font-size: 0.75rem;
             font-weight: 700;
-            color: #d35400;
+            color: var(--mocha-dark);
             margin-bottom: 4px;
         }
 
         .flight-detail {
             font-size: 0.9rem;
             font-weight: 700;
-            color: #2d3436;
+            color: var(--text-main);
         }
 
         .hotel-list {
@@ -611,38 +715,79 @@
             display: inline-block;
             width: 76px;
             font-weight: 700;
-            color: var(--fuji-blue);
+            color: var(--mocha-dark);
             font-size: 0.78rem;
         }
 
-        .transit-frame-box {
-            width: 100%;
-            height: 480px;
-            border: 1px solid var(--border);
+        /* 點對點即時查詢輸入區塊 */
+        .transit-search-widget {
+            background: var(--warm-cream);
             border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            margin-top: 12px;
-            background: #fafafa;
+            padding: 14px;
+            border: 1px solid var(--border);
+            margin-top: 10px;
         }
 
-        .transit-frame {
+        .transit-form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .transit-form-group {
+            flex: 1;
+        }
+
+        .transit-form-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--mocha-dark);
+            margin-bottom: 4px;
+        }
+
+        .transit-input {
             width: 100%;
-            height: 100%;
+            padding: 8px 10px;
+            border: 1px solid #D5C8BD;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            background: #FFFFFF;
+            color: var(--text-main);
+        }
+
+        .btn-transit-submit {
+            width: 100%;
+            background: var(--mocha);
+            color: #FFFFFF;
             border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .btn-transit-submit:hover {
+            background: var(--mocha-dark);
         }
 
         .quick-routes {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .quick-btn {
-            background: #edf2f7;
-            border: 1px solid #cbd5e0;
-            color: #4a5568;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            color: var(--text-sub);
             padding: 5px 10px;
             border-radius: 6px;
             font-size: 0.74rem;
@@ -650,10 +795,13 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
+            cursor: pointer;
+            transition: 0.15s;
         }
 
         .quick-btn:hover {
-            background: #e2e8f0;
+            background: var(--latte-sand);
+            color: var(--mocha-dark);
         }
     </style>
 </head>
@@ -663,8 +811,8 @@
     <header>
         <div class="header-top">
             <div class="header-title">
-                <h1><i class="fa-solid fa-mountain-sun"></i> 東京與富士山</h1>
-                <p>四大一小 6天5夜慢活之旅・10/9 - 10/14</p>
+                <h1><i class="fa-solid fa-mountain-sun"></i> 2026 秋之東京</h1>
+                <p>10/9-14 東京市區、富士河口湖慢活之旅</p>
             </div>
             <a href="https://tenki.jp/" target="_blank" class="weather-btn-top">
                 <i class="fa-solid fa-cloud-sun"></i> tenki.jp 氣象
@@ -675,7 +823,7 @@
     <main>
         <!-- ==================== 頁籤 1: 行程 ==================== -->
         <section id="view-schedule" class="page-view active">
-            <!-- 橫向滑動分頁按鈕 (Day 1 ~ Day 6) -->
+            <!-- 橫向滑動日別按鈕 -->
             <div class="day-slider-container">
                 <div class="day-slider">
                     <button class="day-btn active" onclick="switchDay(1)">
@@ -739,14 +887,14 @@
                         <div class="timeline-card">
                             <span class="card-time-tag">19:25 抵達</span>
                             <h2 class="card-title"><i class="fa-solid fa-plane-arrival"></i> 成田機場專車接送</h2>
-                            <p class="card-desc">星宇航空 JX804 抵達成田 T2。專車司機會合，全家大型行李與推車直接上車，直奔淺草合羽橋住宿。</p>
+                            <p class="card-desc">星宇航空 JX804 抵達成田第二航廈。專車司機舉牌會合，四大一小大型行李與推車直接上車，免去轉車勞累，直奔淺草合羽橋住宿。</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-card">
                             <span class="card-time-tag">21:00</span>
                             <h2 class="card-title"><i class="fa-solid fa-hotel"></i> 入住 KOKO HOTEL 淺草合羽橋</h2>
-                            <p class="card-desc">辦理入住安頓。公寓式客房配備微波爐、廚房餐具與洗脫烘設備，家庭入住最輕鬆。</p>
+                            <p class="card-desc">辦理入住安頓。公寓式客房配備微波爐、IH 廚房餐具與洗脫烘設備，家庭長住極具便利性。</p>
                             <a href="https://maps.google.com/?q=KOKO+HOTEL+Residence+Asakusa+Kappabashi" target="_blank" class="btn-map"><i class="fa-solid fa-location-arrow"></i> 飯店導航</a>
                         </div>
                     </div>
@@ -757,7 +905,7 @@
                             <div class="card-tag"><i class="fa-solid fa-tags"></i> 熟食便當/壽司/宵夜補充</div>
                             <p class="card-desc">
                                 <strong>採買與外帶建議</strong>：<br>
-                                • <strong>Life 超市 淺草店</strong>（營業至 22:00，步行 3 分鐘）：日本鮮奶、產地水果與晚間熟食特價。<br>
+                                • <strong>Life 超市 淺草店</strong>（營業至 22:00，步行 3 分鐘）：日本鮮奶、產地水果與晚間熟食特價出清。<br>
                                 • <strong>西友超市 淺草 ROX 店</strong>（<strong>24 小時營業</strong>，步行 6 分鐘）：若班機延誤超過 22:00，地下一樓食品館全天候供應現做熱食、便當與嬰童備品。<br>
                                 • <strong>外帶選項</strong>：周邊松屋牛丼、Lawson/7-11、居酒屋串燒外帶回房享用。
                             </p>
@@ -810,7 +958,7 @@
                             <p class="card-desc">
                                 <strong>精選推薦（二選一）</strong>：<br>
                                 • <strong>Pelican Café</strong>（09:00 開門）：老字號白鵜鶘炭火厚切烤吐司與火腿三明治。<br>
-                                • <strong>MISOJYU</strong>（08:00 開門）：慢火熬煮有機蔬菜濃郁味噌湯搭現做飯糰。
+                                • <strong>MISOJYU</strong>（08:00 開門）：慢火熬煮有機蔬菜濃郁味噌湯搭現做日式飯糰。
                             </p>
                         </div>
                     </div>
@@ -819,7 +967,7 @@
                             <span class="card-time-tag">09:15 - 11:00</span>
                             <h2 class="card-title"><i class="fa-solid fa-torii-gate"></i> 淺草雷門 ➔ 仲見世通</h2>
                             <div class="card-tag"><i class="fa-solid fa-cookie-bite"></i> 必買點心：淺草炸肉餅、人形燒</div>
-                            <p class="card-desc">早晨避開觀光團人潮，在雷門大紅燈籠下拍照合影，漫步仲見世通體驗下町風情。</p>
+                            <p class="card-desc">早晨避開觀光團人潮，在雷門大紅燈籠下拍照合影，漫步仲見世通體驗下町歷史風情。</p>
                             <a href="https://maps.google.com/?q=Kaminarimon" target="_blank" class="btn-map"><i class="fa-solid fa-location-arrow"></i> 雷門導航</a>
                         </div>
                     </div>
@@ -835,7 +983,19 @@
                         <div class="timeline-card">
                             <span class="card-time-tag">13:00 - 15:30</span>
                             <h2 class="card-title"><i class="fa-solid fa-bag-shopping"></i> 表參道 ➔ 南青山漫步</h2>
-                            <p class="card-desc">走訪安藤忠雄設計的表參道之丘與南青山精品建築。中途可在原宿站「猿田彥珈琲 The Bridge」或「WITH HARAJUKU」舒適沙發區小憩餵奶。</p>
+                            <p class="card-desc">漫步表參道之丘林蔭道與南青山街區，享受國際建築與生活美學風格。</p>
+
+                            <!-- 可拜訪清單 (加入指定品牌) -->
+                            <div class="spot-highlight-box">
+                                <div class="spot-highlight-title"><i class="fa-solid fa-store"></i> 表參道・南青山 可拜訪清單：</div>
+                                <ul class="spot-highlight-list">
+                                    <li><strong>鬼塚虎 (Onitsuka Tiger)</strong>：表參道旗艦店或 NIPPON MADE 系列，日本精緻工藝休閒球鞋。</li>
+                                    <li><strong>10 mois (南青山旗艦店)</strong>：日本頂級母嬰選物店，必買招牌六層紗蘑菇防踢被與幼兒親膚好物。</li>
+                                    <li><strong>Amam dacotan (アマムダコタン 表參道店)</strong>：福岡發祥超人氣排隊麵包名店，生甜甜圈與視覺系創意料理麵包。</li>
+                                    <li><strong>微熱山丘 (SunnyHills 南青山)</strong>：建築大師隈研吾以「地獄組」榫卯木造打造的朝聖地標，奉茶品嚐鳳梨酥。</li>
+                                    <li><strong>Tamitu (南青山店)</strong>：天然草本調合純蜜專門概念店，精緻琥珀瓶身與職人特調草本蜜，送禮自用皆美。</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1071,18 +1231,25 @@
                     <div class="timeline-item">
                         <div class="timeline-card">
                             <span class="card-time-tag">11:00 - 12:30</span>
-                            <h2 class="card-title"><i class="fa-solid fa-gift"></i> 伴手禮挑選推薦</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-gift"></i> 伴手禮挑選推薦店家</h2>
                             <p class="card-desc">
-                                • <strong>Fujiyama Cookie</strong>：富士山造型精緻手工奶油餅乾（白巧克力雪冠造型）。<br>
-                                • <strong>桔梗信玄餅</strong>、甲州巨峰葡萄汁、富士山清酒杯。
+                                • <strong>FUJIYAMA COOKIE 總店</strong>（纜車站旁）：富士山造型手工香濃奶油酥餅（頂部覆蓋白巧克力雪冠，香草/伯爵茶/草莓經典必買）。<br>
+                                • <strong>FUJISAN SHOKUPAN (富士山食パン)</strong>：超吸睛的藍白富士山斷面生吐司。<br>
+                                • <strong>河口湖自然生活館</strong>：富士山產頂級手工藍莓果醬、甲州巨峰葡萄汁。<br>
+                                • <strong>桔梗屋東治郎 富士吉田店</strong>：經典桔梗信玄餅、黑蜜黃豆粉冰淇淋與富士山造型酒杯。
                             </p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-card">
                             <span class="card-time-tag">12:30 - 13:30</span>
-                            <h2 class="card-title"><i class="fa-solid fa-utensils"></i> 午餐：湖畔咖啡輕食</h2>
-                            <p class="card-desc">在 Lake Bake 或 CISCO 景觀咖啡館享用手作麵包與輕食套餐。</p>
+                            <h2 class="card-title"><i class="fa-solid fa-utensils"></i> 午餐：湖畔正餐與特色景觀料理</h2>
+                            <p class="card-desc">
+                                <strong>豐盛正餐推薦（二選一）</strong>：<br>
+                                1. <strong>湖波 (こなみ食事處 Konami)</strong>：湖畔第一排和風名店，正餐推薦富士櫻豬炸豬排膳、特製鰻魚飯、熱騰騰餺飥麵與炸蝦釜飯。<br>
+                                2. <strong>甲州ほうとう 小作 (河口湖店)</strong>：炭火燒肉定食、天婦羅膳或經典南瓜餺飥。<br>
+                                <em>（輕食備案：Lake Bake 手工歐式麵包或 CISCO 景觀美式咖啡館）</em>
+                            </p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1186,19 +1353,43 @@
             <!-- 富士山/河口湖 YouTube Live 即時攝影機 -->
             <div class="live-stream-box">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/live_stream?channel=UCv_0tGj3Fp6sN3H-5wQd1vg" title="富士山即時攝影機" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe 
+                        src="https://www.youtube-nocookie.com/embed/live_stream?channel=UC7_uJ3_yVfIeGqP7s5pS0qA" 
+                        title="河口湖富士山即時攝影機" 
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="live-info">
-                    <span><i class="fa-solid fa-video text-danger"></i> 富士山・河口湖 即時視訊 Live</span>
-                    <a href="https://www.youtube.com/results?search_query=mt+fuji+live+camera" target="_blank" style="color: #54a0ff; font-size: 0.78rem; text-decoration: none;">更多鏡頭 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span><i class="fa-solid fa-video" style="color: #E76F51;"></i> 富士山・河口湖 24H 即時影像</span>
+                    <span style="font-size: 0.72rem; color: #D7CCC8;">UTY 山梨電視台即時視訊</span>
                 </div>
             </div>
 
-            <!-- 淺草寺 -->
+            <!-- 即時視訊播放異常完整排解方案卡片 -->
+            <div class="live-troubleshoot-box">
+                <div class="troubleshoot-title">
+                    <i class="fa-solid fa-circle-question"></i> 即時影像顯示錯誤 153 或一片黑？
+                </div>
+                <p class="troubleshoot-desc">
+                    <strong>主要原因</strong>：若您在電腦以資料夾直接開啟本檔案（網址為 <code>file:///</code> 開頭），YouTube 瀏覽器安全機制會因無法辨識來源網址而封鎖。<strong>只要將網頁上傳部署至 GitHub Pages（走標準 https 網址）即可正常播放</strong>。若出門在外遇到串流維護，請點擊下方備案：
+                </p>
+                <div class="troubleshoot-links">
+                    <a href="https://www.youtube.com/watch?v=live" target="_blank" class="btn-direct-yt">
+                        <i class="fa-brands fa-youtube"></i> 在 YouTube App 直接觀看
+                    </a>
+                    <a href="https://www.youtube.com/results?search_query=河口湖+富士山+ライブカメラ&sp=CAMSAkAB" target="_blank" class="btn-alt-camera">
+                        <i class="fa-solid fa-camera"></i> 更多河口湖備用即時鏡頭
+                    </a>
+                </div>
+            </div>
+
+            <!-- 淺草寺 (雷門大紅燈籠精準圖片) -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80" alt="淺草寺雷門">
-                    <span class="guide-img-badge">CC0 Public Domain</span>
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80" alt="淺草寺雷門大紅提燈">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">淺草寺與雷門大紅燈籠</h2>
@@ -1211,8 +1402,7 @@
             <!-- 明治神宮 -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=900&q=80" alt="明治神宮大鳥居">
-                    <span class="guide-img-badge">CC0 Public Domain</span>
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=900&q=80" alt="明治神宮大鳥居與林道">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">明治神宮與永恆之森</h2>
@@ -1222,25 +1412,23 @@
                 </div>
             </article>
 
-            <!-- 東京麵包祭 -->
+            <!-- 青山麵包祭 -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="東京美味麵包">
-                    <span class="guide-img-badge">CC0 Public Domain</span>
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="青山麵包祭職人手作歐式麵包">
                 </div>
                 <div class="guide-content">
-                    <h2 class="guide-title">東京麵包祭與職人烘焙文化</h2>
-                    <p class="guide-text">東京是全球烘焙密度最高的城市之一，每年定期舉辦的「麵包祭（パンのフェス）」總吸引數萬麵包迷朝聖。</p>
-                    <div class="guide-story-title"><i class="fa-solid fa-book-open"></i> 私房小故事：只專注做兩種麵包的 Pelican</div>
-                    <p class="guide-text">淺草創立於 1942 年的「Pelican（白鵜鶘）」，創始店八十年來只販售吐司與餐包，不加人工香精，純靠單純的麵粉香與天然筋度征服老東京人。烘焙職人堅持清晨以炭火出爐，是品味東京慢活早餐的最佳代表。</p>
+                    <h2 class="guide-title">青山麵包祭 (Aoyama Bread Festival)</h2>
+                    <p class="guide-text">舉辦於表參道與青山交界的「聯合國大學前廣場（Farmer's Market @ UNU）」，是東京最具號召力的職人麵包市集，匯聚全日本獨立烘焙坊與天然酵母狂熱者。</p>
+                    <div class="guide-story-title"><i class="fa-solid fa-book-open"></i> 私房小故事：青山為何是頂級烘焙的核心？</div>
+                    <p class="guide-text">從老牌法式麵包、排隊狂潮 Amam dacotan 到提倡「不浪費麵包、尊重產地小麥」的獨立職人，青山街區匯聚了日本最挑剔的味蕾。青山麵包祭不僅是一場市集，更是一場探討麵粉、天然發酵與永續農業的飲食美學運動。</p>
                 </div>
             </article>
 
             <!-- 河口湖 -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=900&q=80" alt="河口湖與富士山">
-                    <span class="guide-img-badge">CC0 Public Domain</span>
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=900&q=80" alt="河口湖湖畔與逆富士">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">河口湖與秋日逆富士</h2>
@@ -1253,8 +1441,7 @@
             <!-- 富士山 -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=900&q=80" alt="富士山">
-                    <span class="guide-img-badge">CC0 Public Domain</span>
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=900&q=80" alt="雄偉的富士山積雪">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">聖山富士山 (標高 3,776m)</h2>
@@ -1267,8 +1454,7 @@
             <!-- 新倉山淺間神社 -->
             <article class="guide-article">
                 <div class="guide-img-box">
-                    <img class="guide-img" src="https://images.unsplash.com/photo-1528164344705-475426879c0d?auto=format&fit=crop&w=900&q=80" alt="新倉山淺間公園忠靈塔">
-                    <span class="guide-img-badge">CC0 Public Domain</span>
+                    <img class="guide-img" src="https://images.unsplash.com/photo-1528164344705-475426879c0d?auto=format&fit=crop&w=900&q=80" alt="新倉山淺間公園忠靈塔與富士山">
                 </div>
                 <div class="guide-content">
                     <h2 class="guide-title">新倉山淺間公園與忠靈塔</h2>
@@ -1284,7 +1470,7 @@
             <!-- 核心證件與金融 -->
             <div class="checklist-section">
                 <div class="section-header">
-                    <h2 class="section-title"><i class="fa-solid fa-id-card text-primary"></i> 核心證件與金融</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-id-card" style="color: var(--mocha-dark);"></i> 核心證件與金融</h2>
                     <span class="progress-text" id="prog-doc">0/5</span>
                 </div>
                 <div class="check-list" data-cat="doc">
@@ -1299,7 +1485,7 @@
             <!-- 嬰幼兒與家庭照護 -->
             <div class="checklist-section">
                 <div class="section-header">
-                    <h2 class="section-title"><i class="fa-solid fa-baby-carriage text-accent"></i> 嬰幼兒與家庭照護</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-baby-carriage" style="color: var(--accent-warm);"></i> 嬰幼兒與家庭照護</h2>
                     <span class="progress-text" id="prog-baby">0/6</span>
                 </div>
                 <div class="check-list" data-cat="baby">
@@ -1315,7 +1501,7 @@
             <!-- 通訊與電器裝備 -->
             <div class="checklist-section">
                 <div class="section-header">
-                    <h2 class="section-title"><i class="fa-solid fa-plug text-info"></i> 通訊與電器裝備</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-plug" style="color: var(--mocha);"></i> 通訊與電器裝備</h2>
                     <span class="progress-text" id="prog-tech">0/5</span>
                 </div>
                 <div class="check-list" data-cat="tech">
@@ -1330,7 +1516,7 @@
             <!-- 自訂備忘錄 -->
             <div class="checklist-section">
                 <div class="section-header">
-                    <h2 class="section-title"><i class="fa-solid fa-pen-to-square text-success"></i> 個人自訂備忘錄</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-pen-to-square" style="color: var(--mocha-dark);"></i> 個人自訂備忘錄</h2>
                 </div>
                 <div id="custom-check-list"></div>
                 <div class="add-item-box">
@@ -1344,7 +1530,7 @@
         <section id="view-info" class="page-view">
             <!-- 航班資訊 -->
             <div class="info-card">
-                <h2 class="section-title" style="margin-bottom: 12px;"><i class="fa-solid fa-plane text-primary"></i> 航班資訊 (星宇航空)</h2>
+                <h2 class="section-title" style="margin-bottom: 12px;"><i class="fa-solid fa-plane" style="color: var(--mocha-dark);"></i> 航班資訊 (星宇航空)</h2>
                 <div class="flight-row">
                     <div class="flight-type"><i class="fa-solid fa-plane-departure"></i> 去程・10/09 (五)</div>
                     <div class="flight-detail">JX804 | 15:00 桃園 T1 ➔ 19:25 成田 T2</div>
@@ -1355,36 +1541,36 @@
                 </div>
             </div>
 
-            <!-- 住宿總覽 (更新至目前最新版本) -->
+            <!-- 住宿總覽 -->
             <div class="info-card">
-                <h2 class="section-title" style="margin-bottom: 12px;"><i class="fa-solid fa-bed text-accent"></i> 住宿總覽清單</h2>
+                <h2 class="section-title" style="margin-bottom: 12px;"><i class="fa-solid fa-bed" style="color: var(--mocha);"></i> 住宿總覽清單</h2>
                 <ul class="hotel-list">
                     <li class="hotel-item">
                         <span class="hotel-date">10/9 - 10/11</span>
                         <strong>KOKO HOTEL Residence Asakusa Kappabashi</strong>
-                        <div style="font-size: 0.78rem; color: #7f8c8d;">東京都台東區西淺草・公寓式小廚房與洗脫烘</div>
+                        <div style="font-size: 0.78rem; color: var(--text-sub);">東京都台東區西淺草・公寓式小廚房與洗脫烘</div>
                     </li>
                     <li class="hotel-item">
                         <span class="hotel-date">10/11 - 10/12</span>
                         <strong>湖山亭產屋 (Ubuya)</strong>
-                        <div style="font-size: 0.78rem; color: #7f8c8d;">山梨縣富士河口湖町・正面富士山絕景・和牛會席</div>
+                        <div style="font-size: 0.78rem; color: var(--text-sub);">山梨縣富士河口湖町・正面富士山絕景・和牛會席</div>
                     </li>
                     <li class="hotel-item">
                         <span class="hotel-date">10/12 - 10/13</span>
                         <strong>秀峰閣 湖月 (Shuhokaku Kogetsu)</strong>
-                        <div style="font-size: 0.78rem; color: #7f8c8d;">山梨縣富士河口湖町・湖畔第一排無遮蔽・足湯啤酒</div>
+                        <div style="font-size: 0.78rem; color: var(--text-sub);">山梨縣富士河口湖町・湖畔第一排無遮蔽・足湯啤酒</div>
                     </li>
                     <li class="hotel-item">
                         <span class="hotel-date">10/13 - 10/14</span>
                         <strong>東京車站唐草酒店 (karaksa hotel TOKYO STATION)</strong>
-                        <div style="font-size: 0.78rem; color: #7f8c8d;">東京都中央區八重洲・步行直通東京車站與 N'EX</div>
+                        <div style="font-size: 0.78rem; color: var(--text-sub);">東京都中央區八重洲・步行直通東京車站與 N'EX</div>
                     </li>
                 </ul>
             </div>
 
             <!-- 緊急求助電話 -->
             <div class="info-card">
-                <h2 class="section-title" style="margin-bottom: 12px;"><i class="fa-solid fa-phone-volume text-danger"></i> 緊急求助電話</h2>
+                <h2 class="section-title" style="margin-bottom: 12px;"><i class="fa-solid fa-phone-volume" style="color: #C0392B;"></i> 緊急求助電話</h2>
                 <ul style="list-style: none; font-size: 0.88rem; line-height: 1.8;">
                     <li><strong style="width: 120px; display: inline-block;">日本報警：</strong> 110</li>
                     <li><strong style="width: 120px; display: inline-block;">消防與救護車：</strong> 119</li>
@@ -1393,36 +1579,58 @@
                 </ul>
             </div>
 
-            <!-- 點對點交通查詢 (內嵌 Jorudan 乘換案內) -->
+            <!-- 點對點交通即時查詢 (互動表單) -->
             <div class="info-card">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h2 class="section-title"><i class="fa-solid fa-route text-fuji"></i> 點對點交通查詢 (乘換案內)</h2>
-                    <a href="https://world.jorudan.co.jp/mln/zh-tw/" target="_blank" style="font-size: 0.75rem; color: var(--fuji-blue); text-decoration: none;">新分頁開啟 <i class="fa-solid fa-external-link"></i></a>
+                    <h2 class="section-title"><i class="fa-solid fa-route" style="color: var(--mocha-dark);"></i> 點對點交通查詢 (乘換案內)</h2>
+                    <a href="https://world.jorudan.co.jp/mln/zh-tw/" target="_blank" style="font-size: 0.75rem; color: var(--mocha); text-decoration: none;">Jorudan 官網 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
-                <p style="font-size: 0.8rem; color: #718096; margin-top: 4px;">免跳頁即時查路線、乘車番線月台與發車時刻：</p>
+                <p style="font-size: 0.8rem; color: var(--text-sub); margin-top: 4px;">輸入起訖站與時間，一鍵開啟即時班次、番線月台與乘車路線：</p>
                 
-                <!-- 內嵌 iframe -->
-                <div class="transit-frame-box">
-                    <iframe class="transit-frame" src="https://world.jorudan.co.jp/mln/zh-tw/" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" title="Jorudan Transit Search"></iframe>
+                <!-- 互動搜尋表單 -->
+                <div class="transit-search-widget">
+                    <div class="transit-form-row">
+                        <div class="transit-form-group">
+                            <label><i class="fa-solid fa-circle-dot" style="color: #27AE60;"></i> 出發地</label>
+                            <input type="text" id="transit-from" class="transit-input" value="淺草" placeholder="例如：淺草、新宿">
+                        </div>
+                        <div class="transit-form-group">
+                            <label><i class="fa-solid fa-location-dot" style="color: #E74C3C;"></i> 目的地</label>
+                            <input type="text" id="transit-to" class="transit-input" value="表參道" placeholder="例如：表參道、河口湖">
+                        </div>
+                    </div>
+                    <div class="transit-form-row">
+                        <div class="transit-form-group">
+                            <label><i class="fa-regular fa-calendar"></i> 出發日期</label>
+                            <input type="date" id="transit-date" class="transit-input" value="2026-10-10">
+                        </div>
+                        <div class="transit-form-group">
+                            <label><i class="fa-regular fa-clock"></i> 出發時間</label>
+                            <input type="time" id="transit-time" class="transit-input" value="10:00">
+                        </div>
+                    </div>
+                    <button type="button" class="btn-transit-submit" onclick="executeTransitSearch()">
+                        <i class="fa-solid fa-magnifying-glass"></i> 立即查詢路線方案
+                    </button>
                 </div>
 
                 <!-- 常用路線快速捷徑 -->
-                <div style="margin-top: 12px;">
-                    <div style="font-size: 0.75rem; font-weight: 700; color: #4a5568; margin-bottom: 4px;">本行程 6 大核心點對點快捷查詢：</div>
+                <div style="margin-top: 14px;">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">本行程 6 大核心點對點快速代入：</div>
                     <div class="quick-routes">
-                        <a href="https://world.jorudan.co.jp/mln/zh-tw/?sub_lang=nosub&from=%E6%88%90%E7%94%B0%E6%A9%9F%E5%A0%B4&to=%E6%B7%BA%E8%8D%89" target="_blank" class="quick-btn"><i class="fa-solid fa-train-subway"></i> 成田機場 ➔ 淺草</a>
-                        <a href="https://world.jorudan.co.jp/mln/zh-tw/?sub_lang=nosub&from=%E6%B7%BA%E8%8D%89&to=%E8%A1%A8%E5%8F%83%E9%81%93" target="_blank" class="quick-btn"><i class="fa-solid fa-train-subway"></i> 淺草 ➔ 表參道</a>
-                        <a href="https://world.jorudan.co.jp/mln/zh-tw/?sub_lang=nosub&from=%E6%96%B0%E5%AE%BF&to=%E6%B2%B3%E5%8F%A3%E6%B9%96" target="_blank" class="quick-btn"><i class="fa-solid fa-train"></i> 新宿 ➔ 河口湖</a>
-                        <a href="https://world.jorudan.co.jp/mln/zh-tw/?sub_lang=nosub&from=%E6%B2%B3%E5%8F%A3%E6%B9%96&to=%E6%96%B0%E5%AE%BF" target="_blank" class="quick-btn"><i class="fa-solid fa-train"></i> 河口湖 ➔ 新宿</a>
-                        <a href="https://world.jorudan.co.jp/mln/zh-tw/?sub_lang=nosub&from=%E6%9D%B1%E4%BA%AC&to=%E6%B0%B4%E5%A4%A9%E5%AE%AE%E5%89%8D" target="_blank" class="quick-btn"><i class="fa-solid fa-train-subway"></i> 東京 ➔ 水天宮/兜町</a>
-                        <a href="https://world.jorudan.co.jp/mln/zh-tw/?sub_lang=nosub&from=%E6%9D%B1%E4%BA%AC&to=%E6%88%90%E7%94%B0%E7%AC%AC%E4%BA%8C%E8%88%AA%E5%BB%88" target="_blank" class="quick-btn"><i class="fa-solid fa-plane"></i> 東京 ➔ 成田機場(N'EX)</a>
+                        <button type="button" class="quick-btn" onclick="setQuickRoute('成田機場', '淺草')"><i class="fa-solid fa-plane"></i> 成田 ➔ 淺草</button>
+                        <button type="button" class="quick-btn" onclick="setQuickRoute('淺草', '表參道')"><i class="fa-solid fa-train-subway"></i> 淺草 ➔ 表參道</button>
+                        <button type="button" class="quick-btn" onclick="setQuickRoute('新宿', '河口湖')"><i class="fa-solid fa-train"></i> 新宿 ➔ 河口湖</button>
+                        <button type="button" class="quick-btn" onclick="setQuickRoute('河口湖', '新宿')"><i class="fa-solid fa-train"></i> 河口湖 ➔ 新宿</button>
+                        <button type="button" class="quick-btn" onclick="setQuickRoute('東京', '水天宮前')"><i class="fa-solid fa-train-subway"></i> 東京 ➔ 水天宮/兜町</button>
+                        <button type="button" class="quick-btn" onclick="setQuickRoute('東京', '成田機場')"><i class="fa-solid fa-plane"></i> 東京 ➔ 成田 (N'EX)</button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 底部主選單 -->
+    <!-- 底部主導覽 Tab -->
     <nav class="tab-nav">
         <button class="nav-btn active" onclick="switchMainTab('view-schedule', this)">
             <i class="fa-solid fa-calendar-days"></i>
@@ -1442,7 +1650,7 @@
         </button>
     </nav>
 
-    <!-- 頁面邏輯 JS -->
+    <!-- 頁面邏輯 JavaScript -->
     <script>
         // 主分頁切換
         function switchMainTab(viewId, btn) {
@@ -1469,9 +1677,27 @@
             document.querySelectorAll('.day-btn')[dayNum - 1].classList.add('active');
         }
 
-        // 行前清單存取與進度條統計 (localStorage 記憶)
-        const STORAGE_KEY = 'tokyo_trip_checklist_state';
-        const CUSTOM_KEY = 'tokyo_trip_custom_items';
+        // 交通查詢執行跳轉
+        function executeTransitSearch() {
+            const from = document.getElementById('transit-from').value.trim();
+            const to = document.getElementById('transit-to').value.trim();
+            if (!from || !to) {
+                alert('請輸入出發地與目的地！');
+                return;
+            }
+            const targetUrl = `https://world.jorudan.co.jp/mln/zh-tw/?sub_lang=nosub&from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+            window.open(targetUrl, '_blank');
+        }
+
+        function setQuickRoute(from, to) {
+            document.getElementById('transit-from').value = from;
+            document.getElementById('transit-to').value = to;
+            executeTransitSearch();
+        }
+
+        // 行前清單存取與進度條統計 (localStorage 記憶保存)
+        const STORAGE_KEY = 'tokyo_trip_checklist_state_2026';
+        const CUSTOM_KEY = 'tokyo_trip_custom_items_2026';
 
         function updateProgress() {
             ['doc', 'baby', 'tech'].forEach(cat => {
@@ -1532,7 +1758,7 @@
                 label.innerHTML = `
                     <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleCustom(${index}, this)">
                     <span class="check-label">${escapeHtml(item.text)}</span>
-                    <button onclick="removeCustom(${index})" style="background:none;border:none;color:#e74c3c;font-size:0.75rem;cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
+                    <button onclick="removeCustom(${index})" style="background:none;border:none;color:#C0392B;font-size:0.75rem;cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
                 `;
                 container.appendChild(label);
             });
@@ -1571,7 +1797,7 @@
             return div.innerHTML;
         }
 
-        // 初始化加載
+        // 初始化
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.check-list input[type="checkbox"]').forEach(cb => {
                 cb.addEventListener('change', saveChecklistState);
